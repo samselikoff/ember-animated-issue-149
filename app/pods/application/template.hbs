@@ -1,0 +1,41 @@
+<AnimatedTools />
+
+<div class="bg-gray-300 w-screen h-screen">
+  <div class="max-w-2xl mx-auto p-8">
+    <button {{action (mut isShowingA) (not isShowingA)}} class='bg-blue-500 text-white px-3 py-2 rounded'>Transition A</button>
+
+    <button {{action (mut isShowingB) (not isShowingB)}} class='bg-blue-500 text-white px-3 py-2 rounded ml-4'>Transition B</button>
+
+    <div class="mt-8">
+      {{#animated-if isShowingA use=this.transitionA duration=750}}
+        <article class='p-8 bg-white rounded border border-gray-200 shadow-xl'>
+          <h1 class='text-xl font-bold mb-4'>Lorem ipsum</h1>
+
+          <div data-animation-id='article-body'>
+            <p class='mt-4'>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <p class='mt-4'>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <p class='mt-4'>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          </div>
+        </article>
+      {{/animated-if}}
+    </div>
+
+    <div class='mt-8'>
+      {{#animated-if isShowingB use=this.transitionBParent duration=750}}
+        <article class='p-8 bg-white rounded border border-gray-200 shadow-xl'>
+          <h1 class='text-xl font-bold mb-4'>Lorem ipsum</h1>
+
+          <AnimatedContainer>
+            {{#animated-value isShowingB use=this.transitionBChild initialInsertion=true finalRemoval=true duration=750}}
+              <div>
+                <p class='mt-4'>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <p class='mt-4'>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <p class='mt-4'>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+              </div>
+            {{/animated-value}}
+          </AnimatedContainer>
+        </article>
+      {{/animated-if}}
+    </div>
+  </div>
+</div>
